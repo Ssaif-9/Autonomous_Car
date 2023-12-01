@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>6.0</ProjectVersion>
+    <ToolchainName>com.Atmel.AVRGCC8</ToolchainName>
+    <ProjectGuid>{80a49383-059f-494e-b534-2edf777bf980}</ProjectGuid>
+    <avrdevice>ATmega32</avrdevice>
+    <avrdeviceseries>none</avrdeviceseries>
+    <OutputType>Executable</OutputType>
+    <Language>C</Language>
+    <OutputFileName>$(MSBuildProjectName)</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <AssemblyName>Autonomous_Car</AssemblyName>
+    <Name>Autonomous_Car</Name>
+    <RootNamespace>Autonomous_Car</RootNamespace>
+    <ToolchainFlavour>Native</ToolchainFlavour>
+    <KeepTimersRunning>true</KeepTimersRunning>
+    <OverrideVtor>false</OverrideVtor>
+    <OverrideVtorValue />
+    <eraseonlaunchrule>0</eraseonlaunchrule>
+    <AsfVersion>3.5.0</AsfVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <ToolchainSettings>
+      <AvrGcc>
+  <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+  <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+  <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+  <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+  <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+  <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+  <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+  <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+  <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+  <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+  <avrgcc.linker.libraries.Libraries>
+    <ListValues>
+      <Value>m</Value>
+    </ListValues>
+  </avrgcc.linker.libraries.Libraries>
+</AvrGcc>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <ToolchainSettings>
+      <AvrGcc>
+  <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+  <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+  <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+  <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+  <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+  <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+  <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
+  <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+  <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+  <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
+  <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+  <avrgcc.linker.libraries.Libraries>
+    <ListValues>
+      <Value>m</Value>
+    </ListValues>
+  </avrgcc.linker.libraries.Libraries>
+  <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcc.assembler.debugging.DebugLevel>
+</AvrGcc>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="APP\Autonomous_Car.c">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="APP" />
+    <Folder Include="HAL" />
+    <Folder Include="HAL\BLUETOOTH\include\" />
+    <Folder Include="HAL\BLUETOOTH\src\" />
+    <Folder Include="HAL\BUTTON\include\" />
+    <Folder Include="HAL\BUTTON\src\" />
+    <Folder Include="HAL\BUZZER\include\" />
+    <Folder Include="HAL\BUZZER\src\" />
+    <Folder Include="HAL\LCD\include\" />
+    <Folder Include="HAL\LCD\src\" />
+    <Folder Include="HAL\LED" />
+    <Folder Include="HAL\LCD" />
+    <Folder Include="HAL\BUZZER" />
+    <Folder Include="HAL\BLUETOOTH" />
+    <Folder Include="HAL\BUTTON" />
+    <Folder Include="HAL\LED\include" />
+    <Folder Include="HAL\LED\src" />
+    <Folder Include="HAL\SERVO\include\" />
+    <Folder Include="HAL\SERVO\src\" />
+    <Folder Include="HAL\ULTRASONIC\include\" />
+    <Folder Include="HAL\ULTRASONIC\src\" />
+    <Folder Include="HAL\WHEEL" />
+    <Folder Include="HAL\ULTRASONIC" />
+    <Folder Include="HAL\SERVO" />
+    <Folder Include="HAL\WHEEL\include\" />
+    <Folder Include="HAL\WHEEL\src\" />
+    <Folder Include="MCAL" />
+    <Folder Include="MCAL\DIO" />
+    <Folder Include="MCAL\DIO\include\" />
+    <Folder Include="MCAL\DIO\src\" />
+    <Folder Include="MCAL\EXTERNAL INTERRUPT\include\" />
+    <Folder Include="MCAL\EXTERNAL INTERRUPT\src\" />
+    <Folder Include="MCAL\GLOBAL INTERRUPT" />
+    <Folder Include="MCAL\EXTERNAL INTERRUPT" />
+    <Folder Include="MCAL\GLOBAL INTERRUPT\include\" />
+    <Folder Include="MCAL\GLOBAL INTERRUPT\src\" />
+    <Folder Include="MCAL\TIMER0" />
+    <Folder Include="MCAL\TIMER0\include\" />
+    <Folder Include="MCAL\TIMER0\src\" />
+    <Folder Include="MCAL\TIMER1" />
+    <Folder Include="MCAL\TIMER1\include\" />
+    <Folder Include="MCAL\TIMER1\src\" />
+    <Folder Include="MCAL\UART" />
+    <Folder Include="MCAL\UART\include\" />
+    <Folder Include="MCAL\UART\src\" />
+    <Folder Include="UTILITES" />
+  </ItemGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
+</Project>
