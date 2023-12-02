@@ -25,49 +25,160 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
       <AvrGcc>
-  <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
-  <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
-  <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
-  <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
-  <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
-  <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
-  <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
-  <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
-  <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
-  <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
-  <avrgcc.linker.libraries.Libraries>
-    <ListValues>
-      <Value>m</Value>
-    </ListValues>
-  </avrgcc.linker.libraries.Libraries>
-</AvrGcc>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>m</Value>
+          </ListValues>
+        </avrgcc.linker.libraries.Libraries>
+      </AvrGcc>
     </ToolchainSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <ToolchainSettings>
       <AvrGcc>
-  <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
-  <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
-  <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
-  <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
-  <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
-  <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
-  <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
-  <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
-  <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
-  <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
-  <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
-  <avrgcc.linker.libraries.Libraries>
-    <ListValues>
-      <Value>m</Value>
-    </ListValues>
-  </avrgcc.linker.libraries.Libraries>
-  <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcc.assembler.debugging.DebugLevel>
-</AvrGcc>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>True</avrgcc.compiler.general.ChangeDefaultCharTypeUnsigned>
+        <avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>True</avrgcc.compiler.general.ChangeDefaultBitFieldUnsigned>
+        <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.optimization.DebugLevel>Default (-g2)</avrgcc.compiler.optimization.DebugLevel>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>m</Value>
+          </ListValues>
+        </avrgcc.linker.libraries.Libraries>
+        <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcc.assembler.debugging.DebugLevel>
+      </AvrGcc>
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="APP\Autonomous_Car.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\BLUETOOTH\include\BLUETOOTH_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\BLUETOOTH\include\BLUETOOTH_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\BLUETOOTH\include\BLUETOOTH_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\BLUETOOTH\src\BLUETOOTH_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\BUTTON\include\BUTTON_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\BUTTON\include\BUTTON_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\BUTTON\include\BUTTON_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\BUTTON\src\BUTTON_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\BUZZER\include\BUZZER_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\BUZZER\include\BUZZER_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\BUZZER\include\BUZZER_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\BUZZER\src\BUZZER_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\LCD\include\LCD_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\LCD\include\LCD_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\LCD\include\LCD_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\LCD\src\LCD_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\LED\include\LED_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\LED\include\LED_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\LED\include\LED_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\LED\src\LED_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\DIO\include\DIO_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\DIO\include\DIO_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\DIO\include\DIO_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\DIO\src\DIO_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\EXTERNAL INTERRUPT\include\EXTI_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\EXTERNAL INTERRUPT\include\EXTI_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\EXTERNAL INTERRUPT\include\EXTI_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\EXTERNAL INTERRUPT\src\EXTI_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\GLOBAL INTERRUPT\include\GLBI_interfase.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\GLOBAL INTERRUPT\include\GLBI_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\GLOBAL INTERRUPT\src\GLBI_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\UART\include\UART_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\UART\include\UART_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\UART\include\UART_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\UART\src\UART_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UTILITES\BIT_MATH.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="UTILITES\STD_TYPE.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
@@ -108,12 +219,15 @@
     <Folder Include="MCAL\EXTERNAL INTERRUPT" />
     <Folder Include="MCAL\GLOBAL INTERRUPT\include\" />
     <Folder Include="MCAL\GLOBAL INTERRUPT\src\" />
+    <Folder Include="MCAL\TIMER2" />
     <Folder Include="MCAL\TIMER0" />
     <Folder Include="MCAL\TIMER0\include\" />
     <Folder Include="MCAL\TIMER0\src\" />
     <Folder Include="MCAL\TIMER1" />
     <Folder Include="MCAL\TIMER1\include\" />
     <Folder Include="MCAL\TIMER1\src\" />
+    <Folder Include="MCAL\TIMER2\include\" />
+    <Folder Include="MCAL\TIMER2\src\" />
     <Folder Include="MCAL\UART" />
     <Folder Include="MCAL\UART\include\" />
     <Folder Include="MCAL\UART\src\" />
