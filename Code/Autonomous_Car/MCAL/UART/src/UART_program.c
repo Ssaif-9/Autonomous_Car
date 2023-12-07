@@ -7,12 +7,12 @@
 
 #define F_CPU 16000000UL
 
-#include "STD_TYPE.h"
-#include "BIT_MATH.h"
+#include "../../../UTILITES/STD_TYPE.h"
+#include "../../../UTILITES/BIT_MATH.h"
 
-#include "UART_config.h"
-#include "UART_interface.h"
-#include "UART_private.h"
+#include "../include/UART_config.h"
+#include "../include/UART_interface.h"
+#include "../include/UART_private.h"
 
 static void (*Private_UART_CallBack_RXC)  (void)=NULL;
 static void (*Private_UART_CallBack_UDRE) (void)=NULL;

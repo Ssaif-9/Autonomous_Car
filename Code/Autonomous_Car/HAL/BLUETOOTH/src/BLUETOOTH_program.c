@@ -4,16 +4,16 @@
  * Created: 09-Oct-23 3:09:27 PM
  *  Author: SEIF EL_DIN SULTAN 
  */ 
-#include "STD_TYPE.h"
-#include "STD_TYPE.h"
 
-#include "UART_config.h"
-#include "UART_interface.h"
-#include "UART_private.h"
+#include "../../../UTILITES/STD_TYPE.h"
 
-#include "BLUETOOTH_config.h"
-#include "BLUETOOTH_interface.h"
-#include "BLUETOOTH_private.h"
+#include "../../../MCAL/UART/include/UART_config.h"
+#include "../../../MCAL/UART/include/UART_interface.h"
+#include "../../../MCAL/UART/include/UART_private.h"
+
+#include "../include/BLUETOOTH_config.h"
+#include "../include/BLUETOOTH_interface.h"
+#include "../include/BLUETOOTH_private.h"
 
 
 void BLUETOOTH_init(void)

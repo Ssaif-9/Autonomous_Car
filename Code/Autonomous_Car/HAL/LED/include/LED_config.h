@@ -9,16 +9,17 @@
 #ifndef LED_CONFIG_H_
 #define LED_CONFIG_H_
 
-#define LED0_PORT    DIO_PORTC
-#define LED0_PIN     DIO_PIN2
+#define LED_FLASH_PORT             DIO_PORTA
+#define LED_FLASH_PIN              DIO_PIN1
 
-#define LED1_PORT    DIO_PORTC
-#define LED1_PIN     DIO_PIN7
+#define LED_BACK_PORT              DIO_PORTA
+#define LED_BACK_PIN               DIO_PIN2
 
-#define LED2_PORT    DIO_PORTD
-#define LED2_PIN     DIO_PIN2
+#define LED_FORWARD_LEFT_PORT      DIO_PORTA
+#define LED2_FORWARD_LEFT_PIN      DIO_PIN3
 
-
+#define LED_FORWARD_RIGHT_PORT     DIO_PORTA
+#define LED2_FORWARD_RIGHT_PIN     DIO_PIN4
 
 
 

@@ -7,12 +7,12 @@
 #define F_CPU 16000000UL
 #include <util/delay.h>
 
-#include "BIT_MATH.h"
-#include "STD_TYPE.h"
+#include "../../../UTILITES/STD_TYPE.h"
+#include "../../../UTILITES/BIT_MATH.h"
 
-#include "EXTI_private.h"
-#include "EXTI_config.h"
-#include "EXTI_interface.h"
+#include "../include/EXTI_private.h"
+#include "../include/EXTI_config.h"
+#include "../include/EXTI_interface.h"
 
 static void (*PRIVATE_PtrCallBackInt0) (void) = NULL;
 static void (*PRIVATE_PtrCallBackInt1) (void) = NULL;
@@ -131,14 +131,14 @@ void EXTI_SetCallBackInt2 (void (*PtrToFunc) (void))
 }
 
 
-void  __vector_1(void) __attribute__((signal)); 
-void  __vector_1(void)
-{
-	if (PRIVATE_PtrCallBackInt0 != NULL)
-	{
-		PRIVATE_PtrCallBackInt0();
-	}
-}
+// void  __vector_1(void) __attribute__((signal)); 
+// void  __vector_1(void)
+// {
+// 	if (PRIVATE_PtrCallBackInt0 != NULL)
+// 	{
+// 		PRIVATE_PtrCallBackInt0();
+// 	}
+// }
 
 void  __vector_2(void) __attribute__((signal)); 
 void  __vector_2(void)

@@ -8,11 +8,11 @@
 
 
 /*UTILITES*/
-#include "STD_TYPE.h"
-#include "BIT_MATH.h"
+#include "../../../UTILITES/STD_TYPE.h"
+#include "../../../UTILITES/BIT_MATH.h"
 /*MCAL*/
-#include "DIO_private.h"
-#include "DIO_interface.h"
+#include "../include/DIO_private.h"
+#include "../include/DIO_interface.h"
 
 
 

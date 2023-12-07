@@ -11,7 +11,7 @@
 
 
 #define BUZZER_PORT    DIO_PORTA
-#define BUZZER_PIN     DIO_PIN3
+#define BUZZER_PIN     DIO_PIN5
 
 
 #endif /* BUZZER_CONFIG_H_ */

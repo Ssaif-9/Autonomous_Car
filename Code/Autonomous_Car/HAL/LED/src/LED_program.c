@@ -6,14 +6,16 @@
  */ 
 
 /*UTILITES*/
-#include "STD_TYPE.h"
-#include "BIT_MATH.h"
+#include "../../../UTILITES/STD_TYPE.h"
+#include "../../../UTILITES/BIT_MATH.h"
 /*MCAL*/
-#include "DIO_private.h"
-#include "DIO_interface.h"
+#include "../../../MCAL/DIO/include/DIO_config.h"
+#include "../../../MCAL/DIO/include/DIO_interface.h"
+#include "../../../MCAL/DIO/include/DIO_private.h"
+
 /*HAL*/
-#include "LED_interface.h"
-#include "LED_config.h"
+#include "../include/LED_interface.h"
+#include "../include/LED_config.h"
 
 
 void LED_init(u8 LedPort,u8 LedPin)

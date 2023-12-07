@@ -6,15 +6,17 @@
  */ 
 
 /*UTILITES*/
-#include "STD_TYPE.h"
-#include "BIT_MATH.h"
+#include "../../../UTILITES/STD_TYPE.h"
+#include "../../../UTILITES/BIT_MATH.h"
 /*MCAL*/
-#include "DIO_private.h"
-#include "DIO_interface.h"
+#include "../../../MCAL/DIO/include/DIO_config.h"
+#include "../../../MCAL/DIO/include/DIO_interface.h"
+#include "../../../MCAL/DIO/include/DIO_private.h"
+
 /*HAL*/
-#include "BUZZER_config.h"
-#include "BUZZER_interface.h"
-#include "BUZZER_private.h"
+#include "../include/BUZZER_config.h"
+#include "../include/BUZZER_interface.h"
+#include "../include/BUZZER_private.h"
 
 void BUZZER_init(u8 BuzzerPort ,u8 BuzzerPin )
 {

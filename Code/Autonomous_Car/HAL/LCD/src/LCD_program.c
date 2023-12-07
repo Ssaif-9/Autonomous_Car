@@ -9,15 +9,17 @@
 #include <util/delay.h>
 
 /*	UTILES_LIB	*/
-#include "STD_TYPE.h"
-#include "BIT_MATH.h"
+#include "../../../UTILITES/STD_TYPE.h"
+#include "../../../UTILITES/BIT_MATH.h"
 /*	MCAL	*/
-#include "DIO_interface.h"
-#include "DIO_private.h"
+#include "../../../MCAL/DIO/include/DIO_config.h"
+#include "../../../MCAL/DIO/include/DIO_interface.h"
+#include "../../../MCAL/DIO/include/DIO_private.h"
+
 /*	HAL	*/
-#include "LCD_interface.h"
-#include "LCD_config.h"
-#include "LCD_private.h"
+#include "../include/LCD_interface.h"
+#include "../include/LCD_config.h"
+#include "../include/LCD_private.h"
 
 
 void LCD_init(void)
