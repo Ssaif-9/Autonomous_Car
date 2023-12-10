@@ -2,7 +2,7 @@
  * ADC_private.h
  *
  * Created: 15-Sep-23 8:38:36 AM
- *  Author: SEIF EL_DIN SULTAN
+ *  Author: M5_Autonomous_Car_TEAM
  */ 
 
 

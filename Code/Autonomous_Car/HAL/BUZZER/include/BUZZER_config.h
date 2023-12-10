@@ -2,7 +2,7 @@
  * BUZZER_config.h
  *
  * Created: 18-Sep-23 9:45:19 PM
- *  Author: SEIF EL_DIN SULTAN
+ *  Author: M5_Autonomous_Car_TEAM
  */ 
 
 

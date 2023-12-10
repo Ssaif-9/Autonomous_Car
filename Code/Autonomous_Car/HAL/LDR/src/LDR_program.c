@@ -2,7 +2,7 @@
  * LDR_program.c
  *
  * Created: 07-Dec-23 10:42:50 PM
- *  Author: SEIF EL_DIN SULTAN
+ *  Author: M5_Autonomous_Car_TEAM
  */ 
 
 #define F_CPU 16000000UL

@@ -2,17 +2,17 @@
  * EXTI_program.c
  *
  * Created: 09-Sep-23 11:30:36 AM
- *  Author:  SEIF EL-DIN SULTAN OSMAN 
+ *  Author:  M5_Autonomous_Car_TEAM
  */ 
 #define F_CPU 16000000UL
 #include <util/delay.h>
 
-#include "../../../UTILITES/STD_TYPE.h"
 #include "../../../UTILITES/BIT_MATH.h"
+#include "../../../UTILITES/STD_TYPE.h"
 
-#include "../include/EXTI_private.h"
 #include "../include/EXTI_config.h"
 #include "../include/EXTI_interface.h"
+#include "../include/EXTI_private.h"
 
 static void (*PRIVATE_PtrCallBackInt0) (void) = NULL;
 static void (*PRIVATE_PtrCallBackInt1) (void) = NULL;
@@ -131,23 +131,16 @@ void EXTI_SetCallBackInt2 (void (*PtrToFunc) (void))
 }
 
 
-// void  __vector_1(void) __attribute__((signal)); 
-// void  __vector_1(void)
-// {
-// 	if (PRIVATE_PtrCallBackInt0 != NULL)
-// 	{
-// 		PRIVATE_PtrCallBackInt0();
-// 	}
-// }
-
-void  __vector_2(void) __attribute__((signal)); 
-void  __vector_2(void)
+void  __vector_1(void) __attribute__((signal)); 
+void  __vector_1(void)
 {
-	if (PRIVATE_PtrCallBackInt1 != NULL)
+	if (PRIVATE_PtrCallBackInt0 != NULL)
 	{
-		PRIVATE_PtrCallBackInt1();
+		PRIVATE_PtrCallBackInt0();
 	}
 }
+
+
 
 void  __vector_3(void) __attribute__((signal)); 
 void  __vector_3(void)

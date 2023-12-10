@@ -142,22 +142,40 @@
     <Compile Include="HAL\LED\src\LED_program.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="HAL\MOTOR\include\MOTOR_private.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="HAL\SERVO\include\SERVO_config.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\SERVO\include\SERVO_interface.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="HAL\SERVO\include\SERVO_private.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="HAL\SERVO\src\SERVO_program.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\ULTRASONIC\include\ULTRA_confg.h">
+    <Compile Include="HAL\ULTRASONIC\include\ULTRASONIC_config.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\ULTRASONIC\include\ULTRA_interface.h">
+    <Compile Include="HAL\ULTRASONIC\include\ULTRASONIC_interface.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\ULTRASONIC\src\ULTRA_program.c">
+    <Compile Include="HAL\ULTRASONIC\include\ULTRASONIC_private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\ULTRASONIC\src\ULTRASONIC_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\MOTOR\include\MOTOR_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\MOTOR\include\MOTOR_interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\MOTOR\src\MOTOR_program.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\ADC\include\ADC_config.h">
@@ -196,6 +214,9 @@
     <Compile Include="MCAL\EXTERNAL_INTERRUPT\src\EXTI_program.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\GLOBAL_INTERRUPT\include\GLBI_config.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MCAL\GLOBAL_INTERRUPT\include\GLBI_interfase.h">
       <SubType>compile</SubType>
     </Compile>
@@ -205,28 +226,28 @@
     <Compile Include="MCAL\GLOBAL_INTERRUPT\src\GLBI_program.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\TIMER0\include\TM0_confg.h">
+    <Compile Include="MCAL\TIMER0\include\TIMER0_config.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\TIMER0\include\TM0_interface.h">
+    <Compile Include="MCAL\TIMER0\include\TIMER0_interface.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\TIMER0\include\TM0_private.h">
+    <Compile Include="MCAL\TIMER0\include\TIMER0_private.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\TIMER0\src\TM0_program.c">
+    <Compile Include="MCAL\TIMER0\src\TIMER0_program.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\TIMER1\include\TMR1_config.h">
+    <Compile Include="MCAL\TIMER1\include\TIMER1_config.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\TIMER1\include\TMR1_interface.h">
+    <Compile Include="MCAL\TIMER1\include\TIMER1_interface.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\TIMER1\include\TMR1_private.h">
+    <Compile Include="MCAL\TIMER1\include\TIMER1_private.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\TIMER1\src\TMR1_program.c">
+    <Compile Include="MCAL\TIMER1\src\TIMER1_program.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\TIMER2\include\TMR2_config.h">
@@ -251,18 +272,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\UART\src\UART_program.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="MCAL\WATCHDOG\include\WATCHDOG_config.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="MCAL\WATCHDOG\include\WATCHDOG_interface.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="MCAL\WATCHDOG\include\WATCHDOG_private.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="MCAL\WATCHDOG\src\WATCHDOG_program.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="UTILITES\BIT_MATH.h">
@@ -297,11 +306,11 @@
     <Folder Include="HAL\SERVO\src\" />
     <Folder Include="HAL\ULTRASONIC\include\" />
     <Folder Include="HAL\ULTRASONIC\src\" />
-    <Folder Include="HAL\WHEEL" />
+    <Folder Include="HAL\MOTOR" />
     <Folder Include="HAL\ULTRASONIC" />
     <Folder Include="HAL\SERVO" />
-    <Folder Include="HAL\WHEEL\include\" />
-    <Folder Include="HAL\WHEEL\src\" />
+    <Folder Include="HAL\MOTOR\include" />
+    <Folder Include="HAL\MOTOR\src" />
     <Folder Include="MCAL" />
     <Folder Include="MCAL\ADC\include" />
     <Folder Include="MCAL\ADC\src" />
@@ -315,7 +324,6 @@
     <Folder Include="MCAL\GLOBAL_INTERRUPT\include" />
     <Folder Include="MCAL\GLOBAL_INTERRUPT\src" />
     <Folder Include="MCAL\ADC" />
-    <Folder Include="MCAL\WATCHDOG" />
     <Folder Include="MCAL\TIMER2" />
     <Folder Include="MCAL\TIMER0" />
     <Folder Include="MCAL\TIMER0\include\" />
@@ -328,8 +336,6 @@
     <Folder Include="MCAL\UART" />
     <Folder Include="MCAL\UART\include\" />
     <Folder Include="MCAL\UART\src\" />
-    <Folder Include="MCAL\WATCHDOG\include" />
-    <Folder Include="MCAL\WATCHDOG\src" />
     <Folder Include="UTILITES" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />

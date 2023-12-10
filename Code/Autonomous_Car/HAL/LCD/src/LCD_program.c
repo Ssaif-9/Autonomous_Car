@@ -2,7 +2,7 @@
  * LCD_program.c
  *
  * Created: 06-Sep-23 6:41:33 PM
- *  Author: SEIF EL-DIN SOLTAN 
+ *  Author: M5_Autonomous_Car_TEAM
  */ 
 
 #define F_CPU 16000000UL

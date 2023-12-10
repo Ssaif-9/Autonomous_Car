@@ -2,7 +2,7 @@
  * UART_config.h
  *
  * Created: 29-Sep-23 11:39:20 AM
- *  Author: SEIF EL_DIN SULTAN
+ *  Author: M5_Autonomous_Car_TEAM
  */ 
 
 

@@ -1,44 +1,41 @@
 /*
  * SERVO_program.c
  *
- * Created: 12/7/2023 12:35:19 PM
- *  Author: Abdullah Ashraf
+ * Created: 26-Sep-23 2:05:47 AM
+ *  Author: M5_Autonomous_Car_TEAM
  */ 
 
+#include "../../../UTILITES/STD_TYPE.h"
+#include "../../../UTILITES/BIT_MATH.h"
 
+#include "../../../MCAL/DIO/include/DIO_config.h"
+#include "../../../MCAL/DIO/include/DIO_interface.h"
+#include "../../../MCAL/DIO/include/DIO_private.h"
+
+
+#include "../../../MCAL/TIMER1/include/TIMER1_config.h"
+#include "../../../MCAL/TIMER1/include/TIMER1_interface.h"
+#include "../../../MCAL/TIMER1/include/TIMER1_private.h"
+
+#include "../include/SERVO_config.h"
 #include "../include/SERVO_interface.h"
+#include "../include/SERVO_private.h"
 
 void SERVO_init(void)
 {
+	DIO_SetPinDirection(TMR1_OC1A_PORT,TMR1_OC1A_PIN,DIO_PIN_OUTPUT);
 	TMR1_init();
-	DIO_SetPinDirection(DIO_PORTD, DIO_PIN5, DIO_PIN_OUTPUT);
-	//DIO_setPinDirection(SERVO_ENABLE_PORT, SERVO_ENABLE_PIN, DIO_PIN_INPUT);
-	//DIO_setPinValue(SERVO_ENABLE_PORT, SERVO_ENABLE_PIN, DIO_PIN_HIGH);
-	TMR1_start();
 }
 
-
-void SERVO_Left(void)
+void SERVO_TurnON(f32 Angle)
 {
-	
-	TMR1_setFastPWM_usingMode14(2,50);
+	f32 DutyCycle;
+	DutyCycle=5.0+(Angle/36.0);
+	TMR1_SetDutyCycle_And_Freq_Value(50,DutyCycle);
+	TMR1_Start();
 }
 
-void SERVO_Right(void)
-{	
-	TMR1_setFastPWM_usingMode14(12,50);
-}
-
-void SERVO_Forward(void)
+void SERVO_TurnOFF()
 {
-	TMR1_setFastPWM_usingMode14(7,50);
-}
-
-void SERVO_AnyAngle(u8 AngleinDegrees)
-{
-	if(AngleinDegrees <= 180 && AngleinDegrees >= 0)
-	{
-		f32 Duty = ( (f32)AngleinDegrees/18.0 ) + 2.0;
-		TMR1_setFastPWM_usingMode14(Duty,50);
-	}
+	TMR1_Stop();
 }

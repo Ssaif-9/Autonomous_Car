@@ -55,11 +55,11 @@ SUBDIRS :=  \
 ../HAL/SERVO/src/ \
 ../HAL/ULTRASONIC/include/ \
 ../HAL/ULTRASONIC/src/ \
-../HAL/WHEEL \
+../HAL/MOTOR \
 ../HAL/ULTRASONIC \
 ../HAL/SERVO \
-../HAL/WHEEL/include/ \
-../HAL/WHEEL/src/ \
+../HAL/MOTOR/include \
+../HAL/MOTOR/src \
 ../MCAL \
 ../MCAL/ADC/include \
 ../MCAL/ADC/src \
@@ -73,7 +73,6 @@ SUBDIRS :=  \
 ../MCAL/GLOBAL_INTERRUPT/include \
 ../MCAL/GLOBAL_INTERRUPT/src \
 ../MCAL/ADC \
-../MCAL/WATCHDOG \
 ../MCAL/TIMER2 \
 ../MCAL/TIMER0 \
 ../MCAL/TIMER0/include/ \
@@ -86,8 +85,6 @@ SUBDIRS :=  \
 ../MCAL/UART \
 ../MCAL/UART/include/ \
 ../MCAL/UART/src/ \
-../MCAL/WATCHDOG/include \
-../MCAL/WATCHDOG/src \
 ../UTILITES
 
 
@@ -101,16 +98,16 @@ C_SRCS +=  \
 ../HAL/LDR/src/LDR_program.c \
 ../HAL/LED/src/LED_program.c \
 ../HAL/SERVO/src/SERVO_program.c \
-../HAL/ULTRASONIC/src/ULTRA_program.c \
+../HAL/ULTRASONIC/src/ULTRASONIC_program.c \
+../HAL/MOTOR/src/MOTOR_program.c \
 ../MCAL/ADC/src/ADC_program.c \
 ../MCAL/DIO/src/DIO_program.c \
 ../MCAL/EXTERNAL_INTERRUPT/src/EXTI_program.c \
 ../MCAL/GLOBAL_INTERRUPT/src/GLBI_program.c \
-../MCAL/TIMER0/src/TM0_program.c \
-../MCAL/TIMER1/src/TMR1_program.c \
+../MCAL/TIMER0/src/TIMER0_program.c \
+../MCAL/TIMER1/src/TIMER1_program.c \
 ../MCAL/TIMER2/src/TMR2_program.c \
-../MCAL/UART/src/UART_program.c \
-../MCAL/WATCHDOG/src/WATCHDOG_program.c
+../MCAL/UART/src/UART_program.c
 
 
 PREPROCESSING_SRCS += 
@@ -128,16 +125,16 @@ HAL/LCD/src/LCD_program.o \
 HAL/LDR/src/LDR_program.o \
 HAL/LED/src/LED_program.o \
 HAL/SERVO/src/SERVO_program.o \
-HAL/ULTRASONIC/src/ULTRA_program.o \
+HAL/ULTRASONIC/src/ULTRASONIC_program.o \
+HAL/MOTOR/src/MOTOR_program.o \
 MCAL/ADC/src/ADC_program.o \
 MCAL/DIO/src/DIO_program.o \
 MCAL/EXTERNAL_INTERRUPT/src/EXTI_program.o \
 MCAL/GLOBAL_INTERRUPT/src/GLBI_program.o \
-MCAL/TIMER0/src/TM0_program.o \
-MCAL/TIMER1/src/TMR1_program.o \
+MCAL/TIMER0/src/TIMER0_program.o \
+MCAL/TIMER1/src/TIMER1_program.o \
 MCAL/TIMER2/src/TMR2_program.o \
-MCAL/UART/src/UART_program.o \
-MCAL/WATCHDOG/src/WATCHDOG_program.o
+MCAL/UART/src/UART_program.o
 
 
 OBJS_AS_ARGS +=  \
@@ -149,16 +146,16 @@ HAL/LCD/src/LCD_program.o \
 HAL/LDR/src/LDR_program.o \
 HAL/LED/src/LED_program.o \
 HAL/SERVO/src/SERVO_program.o \
-HAL/ULTRASONIC/src/ULTRA_program.o \
+HAL/ULTRASONIC/src/ULTRASONIC_program.o \
+HAL/MOTOR/src/MOTOR_program.o \
 MCAL/ADC/src/ADC_program.o \
 MCAL/DIO/src/DIO_program.o \
 MCAL/EXTERNAL_INTERRUPT/src/EXTI_program.o \
 MCAL/GLOBAL_INTERRUPT/src/GLBI_program.o \
-MCAL/TIMER0/src/TM0_program.o \
-MCAL/TIMER1/src/TMR1_program.o \
+MCAL/TIMER0/src/TIMER0_program.o \
+MCAL/TIMER1/src/TIMER1_program.o \
 MCAL/TIMER2/src/TMR2_program.o \
-MCAL/UART/src/UART_program.o \
-MCAL/WATCHDOG/src/WATCHDOG_program.o
+MCAL/UART/src/UART_program.o
 
 
 C_DEPS +=  \
@@ -170,16 +167,16 @@ HAL/LCD/src/LCD_program.d \
 HAL/LDR/src/LDR_program.d \
 HAL/LED/src/LED_program.d \
 HAL/SERVO/src/SERVO_program.d \
-HAL/ULTRASONIC/src/ULTRA_program.d \
+HAL/ULTRASONIC/src/ULTRASONIC_program.d \
+HAL/MOTOR/src/MOTOR_program.d \
 MCAL/ADC/src/ADC_program.d \
 MCAL/DIO/src/DIO_program.d \
 MCAL/EXTERNAL_INTERRUPT/src/EXTI_program.d \
 MCAL/GLOBAL_INTERRUPT/src/GLBI_program.d \
-MCAL/TIMER0/src/TM0_program.d \
-MCAL/TIMER1/src/TMR1_program.d \
+MCAL/TIMER0/src/TIMER0_program.d \
+MCAL/TIMER1/src/TIMER1_program.d \
 MCAL/TIMER2/src/TMR2_program.d \
-MCAL/UART/src/UART_program.d \
-MCAL/WATCHDOG/src/WATCHDOG_program.d
+MCAL/UART/src/UART_program.d
 
 
 C_DEPS_AS_ARGS +=  \
@@ -191,16 +188,16 @@ HAL/LCD/src/LCD_program.d \
 HAL/LDR/src/LDR_program.d \
 HAL/LED/src/LED_program.d \
 HAL/SERVO/src/SERVO_program.d \
-HAL/ULTRASONIC/src/ULTRA_program.d \
+HAL/ULTRASONIC/src/ULTRASONIC_program.d \
+HAL/MOTOR/src/MOTOR_program.d \
 MCAL/ADC/src/ADC_program.d \
 MCAL/DIO/src/DIO_program.d \
 MCAL/EXTERNAL_INTERRUPT/src/EXTI_program.d \
 MCAL/GLOBAL_INTERRUPT/src/GLBI_program.d \
-MCAL/TIMER0/src/TM0_program.d \
-MCAL/TIMER1/src/TMR1_program.d \
+MCAL/TIMER0/src/TIMER0_program.d \
+MCAL/TIMER1/src/TIMER1_program.d \
 MCAL/TIMER2/src/TMR2_program.d \
-MCAL/UART/src/UART_program.d \
-MCAL/WATCHDOG/src/WATCHDOG_program.d
+MCAL/UART/src/UART_program.d
 
 
 OUTPUT_FILE_PATH +=Autonomous_Car.elf
@@ -303,6 +300,12 @@ HAL/ULTRASONIC/src/%.o: ../HAL/ULTRASONIC/src/%.c
 	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32   -o"$@" "$<" 
 	@echo Finished building: $<
 
+HAL/MOTOR/src/%.o: ../HAL/MOTOR/src/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32   -o"$@" "$<" 
+	@echo Finished building: $<
+
 MCAL/ADC/src/%.o: ../MCAL/ADC/src/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
@@ -346,12 +349,6 @@ MCAL/TIMER2/src/%.o: ../MCAL/TIMER2/src/%.c
 	@echo Finished building: $<
 
 MCAL/UART/src/%.o: ../MCAL/UART/src/%.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32   -o"$@" "$<" 
-	@echo Finished building: $<
-
-MCAL/WATCHDOG/src/%.o: ../MCAL/WATCHDOG/src/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
 	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32   -o"$@" "$<" 

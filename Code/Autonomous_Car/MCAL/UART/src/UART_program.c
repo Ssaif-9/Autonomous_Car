@@ -2,7 +2,7 @@
  * UART_program.c
  *
  * Created: 29-Sep-23 11:39:34 AM
- *  Author: SEIF EL_DIN SULTAN
+ *  Author: M5_Autonomous_Car_TEAM
  */ 
 
 #define F_CPU 16000000UL

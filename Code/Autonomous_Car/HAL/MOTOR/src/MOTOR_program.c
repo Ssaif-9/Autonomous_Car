@@ -1,0 +1,195 @@
+/*
+ * MOTOR_program.c
+ *
+ * Created: 12/8/2023 12:40:27 PM
+ *  Author: M5_Autonomous_Car_TEAM
+ */ 
+
+#define F_CPU 16000000UL
+
+#include <util/delay.h>
+
+#include "../../../UTILITES/STD_TYPE.h"
+#include "../../../UTILITES/BIT_MATH.h"
+
+#include "../../../MCAL/DIO/include/DIO_config.h"
+#include "../../../MCAL/DIO/include/DIO_interface.h"
+#include "../../../MCAL/DIO/include/DIO_private.h"
+
+#include "../../../MCAL/TIMER2/include/TMR2_config.h"
+#include "../../../MCAL/TIMER2/include/TMR2_interface.h"
+#include "../../../MCAL/TIMER2/include/TMR2_private.h"
+
+#include "../include/MOTOR_interface.h"
+#include "../include/MOTOR_config.h"
+
+void WHEEL_Init()
+{
+	//Directions for both motors
+	DIO_SetPinDirection(MOTOR_LEFTPORT,MOTOR_LEFTINPUT1,DIO_PIN_OUTPUT);
+	DIO_SetPinDirection(MOTOR_LEFTPORT,MOTOR_LEFTINPUT2,DIO_PIN_OUTPUT);
+	DIO_SetPinDirection(MOTOR_RIGHTPORT,MOTOR_RIGHTINPUT1,DIO_PIN_OUTPUT);
+	DIO_SetPinDirection(MOTOR_RIGHTPORT,MOTOR_RIGHTINPUT2,DIO_PIN_OUTPUT);
+	
+	// Enable Settings for both motors
+	DIO_SetPinDirection(MOTOR_ENABLEPORT,MOTOR_ENABLEPIN,DIO_PIN_OUTPUT); //ENABLE OC2
+	
+	DIO_SetPinValue(MOTOR_LEFTPORT,MOTOR_LEFTINPUT1,DIO_PIN_LOW);
+	DIO_SetPinValue(MOTOR_LEFTPORT,MOTOR_LEFTINPUT2,DIO_PIN_LOW);
+	
+	
+	// Motor2 Control
+	
+	DIO_SetPinValue(MOTOR_RIGHTPORT,MOTOR_RIGHTINPUT1,DIO_PIN_LOW);
+	DIO_SetPinValue(MOTOR_RIGHTPORT,MOTOR_RIGHTINPUT2,DIO_PIN_LOW);
+	
+	
+}
+
+void WHEEL_MoveForward ()
+{
+	DIO_SetPinValue(MOTOR_ENABLEPORT,MOTOR_ENABLEPIN,DIO_PIN_HIGH);
+	
+	DIO_SetPinValue(MOTOR_LEFTPORT,MOTOR_LEFTINPUT1,DIO_PIN_LOW);
+	DIO_SetPinValue(MOTOR_LEFTPORT,MOTOR_LEFTINPUT2,DIO_PIN_HIGH);
+	
+	
+	// Motor2 Control
+	
+	DIO_SetPinValue(MOTOR_RIGHTPORT,MOTOR_RIGHTINPUT1,DIO_PIN_LOW);
+	DIO_SetPinValue(MOTOR_RIGHTPORT,MOTOR_RIGHTINPUT2,DIO_PIN_HIGH);
+	
+}
+
+void WHEEL_MoveBackward ()
+{
+	DIO_SetPinValue(MOTOR_ENABLEPORT,MOTOR_ENABLEPIN,DIO_PIN_HIGH);
+	
+	DIO_SetPinValue(MOTOR_LEFTPORT,MOTOR_LEFTINPUT1,DIO_PIN_HIGH);
+	DIO_SetPinValue(MOTOR_LEFTPORT,MOTOR_LEFTINPUT2,DIO_PIN_LOW);
+
+	
+	
+	// Motor2 Control
+	
+	DIO_SetPinValue(MOTOR_RIGHTPORT,MOTOR_RIGHTINPUT1,DIO_PIN_HIGH);
+	DIO_SetPinValue(MOTOR_RIGHTPORT,MOTOR_RIGHTINPUT2,DIO_PIN_LOW);
+}
+
+
+void WHEEL_Stop ()
+{
+	DIO_SetPinValue(MOTOR_ENABLEPORT,MOTOR_ENABLEPIN,DIO_PIN_HIGH);
+	
+	DIO_SetPinValue(MOTOR_LEFTPORT,MOTOR_LEFTINPUT1,DIO_PIN_LOW);
+	DIO_SetPinValue(MOTOR_LEFTPORT,MOTOR_LEFTINPUT2,DIO_PIN_LOW);
+	
+	
+	// Motor2 Control
+	
+	DIO_SetPinValue(MOTOR_RIGHTPORT,MOTOR_RIGHTINPUT1,DIO_PIN_LOW);
+	DIO_SetPinValue(MOTOR_RIGHTPORT,MOTOR_RIGHTINPUT2,DIO_PIN_LOW);
+}
+
+
+void WHEEL_MoveForwardRight ()
+{
+	DIO_SetPinValue(MOTOR_ENABLEPORT,MOTOR_ENABLEPIN,DIO_PIN_HIGH);
+	//RIGHT WHEELS STOP, LEFT WHEELS FORWARD
+	DIO_SetPinValue(MOTOR_LEFTPORT,MOTOR_LEFTINPUT1,DIO_PIN_LOW);
+	DIO_SetPinValue(MOTOR_LEFTPORT,MOTOR_LEFTINPUT2,DIO_PIN_HIGH);
+	
+	
+	// Motor2 Control
+	
+	DIO_SetPinValue(MOTOR_RIGHTPORT,MOTOR_RIGHTINPUT1,DIO_PIN_LOW);
+	DIO_SetPinValue(MOTOR_RIGHTPORT,MOTOR_RIGHTINPUT2,DIO_PIN_LOW);
+	
+}
+
+void WHEEL_MoveForwardleft ()
+{
+	DIO_SetPinValue(MOTOR_ENABLEPORT,MOTOR_ENABLEPIN,DIO_PIN_HIGH);
+	//LEFT WHEELS STOP, RIGHT WHEELS FORWARD
+	DIO_SetPinValue(MOTOR_LEFTPORT,MOTOR_LEFTINPUT1,DIO_PIN_LOW);
+	DIO_SetPinValue(MOTOR_LEFTPORT,MOTOR_LEFTINPUT2,DIO_PIN_LOW);
+	
+	
+	// Motor2 Control
+	
+	DIO_SetPinValue(MOTOR_RIGHTPORT,MOTOR_RIGHTINPUT1,DIO_PIN_LOW);
+	DIO_SetPinValue(MOTOR_RIGHTPORT,MOTOR_RIGHTINPUT2,DIO_PIN_HIGH);
+}
+
+void WHEEL_MoveBackwardleft ()
+{
+	DIO_SetPinValue(MOTOR_ENABLEPORT,MOTOR_ENABLEPIN,DIO_PIN_HIGH);
+	
+	DIO_SetPinValue(MOTOR_LEFTPORT,MOTOR_LEFTINPUT1,DIO_PIN_LOW);
+	DIO_SetPinValue(MOTOR_LEFTPORT,MOTOR_LEFTINPUT2,DIO_PIN_LOW);
+	
+	
+	// Motor2 Control
+	
+	DIO_SetPinValue(MOTOR_RIGHTPORT,MOTOR_RIGHTINPUT1,DIO_PIN_HIGH);
+	DIO_SetPinValue(MOTOR_RIGHTPORT,MOTOR_RIGHTINPUT2,DIO_PIN_LOW);
+}
+
+void WHEEL_MoveBackwardRight ()
+{
+	DIO_SetPinValue(MOTOR_ENABLEPORT,MOTOR_ENABLEPIN,DIO_PIN_HIGH);
+	
+	DIO_SetPinValue(MOTOR_LEFTPORT,MOTOR_LEFTINPUT1,DIO_PIN_HIGH);
+	DIO_SetPinValue(MOTOR_LEFTPORT,MOTOR_LEFTINPUT2,DIO_PIN_LOW);
+	
+	
+	// Motor2 Control
+	
+	DIO_SetPinValue(MOTOR_RIGHTPORT,MOTOR_RIGHTINPUT1,DIO_PIN_LOW);
+	DIO_SetPinValue(MOTOR_RIGHTPORT,MOTOR_RIGHTINPUT2,DIO_PIN_LOW);
+}
+
+void WHEEL_TurnDirection ()
+{
+}
+void WHEEL_SendDutyCycleAndStart(u8 speed)
+{
+	//WHEEL_Init();
+	TMR2_init();
+	TMR2_SetDutyCycleValue_FastPWM(speed); // RANGE FROM 0 to 100 
+	TMR2_Start();
+}
+void WHEEL_AdjustSpeed ()
+{
+	static u8 speed = 0;
+	u8 *PinValue;
+	DIO_ReadValue(DIO_PORTB,DIO_PIN4,PinValue);
+	if(*PinValue == 1)
+	{
+		_delay_ms(350);
+		if(speed > 90)
+		{
+			speed+=10; // WHEEL_SpeedUP
+		}
+	}
+	DIO_ReadValue(DIO_PORTB,DIO_PIN5,PinValue);
+	if (*PinValue == 1)
+	{
+		_delay_ms(350);
+		if(speed > 10)
+		{
+			speed-=10; // WHEEL_SpeedUP
+		}
+		
+		
+	}
+	DIO_ReadValue(DIO_PORTB,DIO_PIN6,PinValue);
+	if (*PinValue == 1)
+	{
+		_delay_ms(350);
+		speed = 0; // WHEEL_SpeedReset
+	}
+	
+	OCR2 = (256*speed)/100 ; 
+	
+}

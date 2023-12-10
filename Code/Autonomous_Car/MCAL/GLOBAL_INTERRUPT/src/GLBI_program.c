@@ -2,7 +2,7 @@
  * GLBI_program.c
  *
  * Created: 09-Sep-23 5:58:45 PM
- *  Author: SEIF EL-DIN SULTAN OSMAN
+ *  Author: M5_Autonomous_Car_TEAM
  */ 
 
 #include "../../../UTILITES/STD_TYPE.h"

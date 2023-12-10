@@ -2,7 +2,7 @@
  * ADC_program.c
  *
  * Created: 15-Sep-23 8:38:07 AM
- *  Author: SEIF EL_DIN SULTAN
+ *  Author: M5_Autonomous_Car_TEAM
  */ 
 #define F_CPU 16000000UL
 #include <util/delay.h>

@@ -2,7 +2,7 @@
  * LCD_config.h
  *
  * Created: 06-Sep-23 10:32:49 PM
- *  Author: SEIF EL-DIN SOLTAN
+ *  Author: M5_Autonomous_Car_TEAM
  */ 
 
 

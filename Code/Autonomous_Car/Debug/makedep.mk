@@ -18,7 +18,9 @@ HAL\LED\src\LED_program.c
 
 HAL\SERVO\src\SERVO_program.c
 
-HAL\ULTRASONIC\src\ULTRA_program.c
+HAL\ULTRASONIC\src\ULTRASONIC_program.c
+
+HAL\MOTOR\src\MOTOR_program.c
 
 MCAL\ADC\src\ADC_program.c
 
@@ -28,13 +30,11 @@ MCAL\EXTERNAL_INTERRUPT\src\EXTI_program.c
 
 MCAL\GLOBAL_INTERRUPT\src\GLBI_program.c
 
-MCAL\TIMER0\src\TM0_program.c
+MCAL\TIMER0\src\TIMER0_program.c
 
-MCAL\TIMER1\src\TMR1_program.c
+MCAL\TIMER1\src\TIMER1_program.c
 
 MCAL\TIMER2\src\TMR2_program.c
 
 MCAL\UART\src\UART_program.c
-
-MCAL\WATCHDOG\src\WATCHDOG_program.c
 
