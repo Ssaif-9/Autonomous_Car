@@ -64,7 +64,7 @@ void UltraSonicMode_SuperLoop (void);
 #define ULTRASONIC_MODE 0
 #define BLUETOOTH_MODE  1
 
-static u16 Speed=50;
+static u16 Speed=85;
 
 #define MAX_SPEED                         100
 #define MIN_SPEED                         0
@@ -82,15 +82,20 @@ int main(void)
 	LCD_init();
 	
 	WHEEL_Init();
+	WHEEL_MoveForward();
+	WHEEL_SendDutyCycleAndStart(Speed);
 	
+	SERVO_init();
+	SERVO_TurnON(FORWARD_Angle);
+		
 	LED_init(LED_BACK_PORT,LED_BACK_PIN);
-	LED_init(LED_FORWARD_RIGHT_PORT,LED2_FORWARD_RIGHT_PIN);
-	LED_init(LED_FORWARD_LEFT_PORT,LED2_FORWARD_LEFT_PIN);
+	LED_init(LED_FORWARD_RIGHT_PORT,LED_FORWARD_RIGHT_PIN);
+	LED_init(LED_FORWARD_LEFT_PORT,LED_FORWARD_LEFT_PIN);
 	LED_init(LED_FLASH_PORT,LED_FLASH_PIN);
 	BUZZER_init(BUZZER_PORT,BUZZER_PIN);
 	
-	LED_TurnOFF(LED_FORWARD_RIGHT_PORT,LED2_FORWARD_RIGHT_PIN);
-	LED_TurnOFF(LED_FORWARD_LEFT_PORT,LED2_FORWARD_LEFT_PIN);
+	LED_TurnOFF(LED_FORWARD_RIGHT_PORT,LED_FORWARD_RIGHT_PIN);
+	LED_TurnOFF(LED_FORWARD_LEFT_PORT,LED_FORWARD_LEFT_PIN);
 	LED_TurnOFF(LED_BACK_PORT,LED_BACK_PIN);
 	LED_TurnOFF(LED_FLASH_PORT,LED_FLASH_PIN);
 	BUZZER_TurnOff(BUZZER_PORT,BUZZER_PIN);
@@ -98,23 +103,12 @@ int main(void)
 	
 	if (ULTRASONIC_MODE == ModeValue)
 	{
-		LCD_GoToLocation(1,1);
-		LCD_SendString("Ultrasonic ON");
-		_delay_ms(1000);
-		
-		SERVO_init();
-		SERVO_TurnON(FORWARD_Angle);
-		ULTRASOIC_init();
-		_delay_ms(1000);
+		Ultrasonic_init();
 		UltraSonicMode_SuperLoop();
 	}
 	else
 	{
-		LCD_GoToLocation(1,1);
 		LCD_SendString("BlueTooth ON");
-		_delay_ms(1000);
-		LCD_ClearDesplay();
-		
 		BLUETOOTH_init();
 		BlueToothMode_SuperLoop();
 	}	
@@ -122,6 +116,7 @@ int main(void)
 
 void BlueToothMode_SuperLoop()
 {
+	WHEEL_Stop ();
 	u8 BlueToothValue;
 	while(1)
 	{	
@@ -140,7 +135,7 @@ void BlueToothMode_SuperLoop()
 			WHEEL_Stop ();
 			break;
 			
-			case 'i' :
+			case 'I' :
 			WHEEL_MoveForwardRight ();
 			break;
 			
@@ -148,7 +143,7 @@ void BlueToothMode_SuperLoop()
 			WHEEL_MoveForwardleft ();
 			break;
 			
-			case 'j' :
+			case 'J' :
 			WHEEL_MoveBackwardRight ();
 			break;
 			
@@ -165,6 +160,7 @@ void BlueToothMode_SuperLoop()
 			}
 			else
 			{	
+				//Do NoThing
 			}
 			break;
 			
@@ -177,6 +173,7 @@ void BlueToothMode_SuperLoop()
 			}
 			else
 			{
+				//Do NoThing
 			}
 			break;
 			
@@ -197,23 +194,23 @@ void BlueToothMode_SuperLoop()
 			break;
 			
 			case 'C' :         //FR  ON
-			LED_TurnON(LED_FORWARD_RIGHT_PORT,LED2_FORWARD_RIGHT_PIN);
-			LED_TurnOFF(LED_FORWARD_LEFT_PORT,LED2_FORWARD_LEFT_PIN);
+			LED_TurnON(LED_FORWARD_RIGHT_PORT,LED_FORWARD_RIGHT_PIN);
+			LED_TurnOFF(LED_FORWARD_LEFT_PORT,LED_FORWARD_LEFT_PIN);
 			break;
 			
 			case 'c' :         //FR  OFF
-			LED_TurnOFF(LED_FORWARD_RIGHT_PORT,LED2_FORWARD_RIGHT_PIN);
-			LED_TurnOFF(LED_FORWARD_LEFT_PORT,LED2_FORWARD_LEFT_PIN);
+			LED_TurnOFF(LED_FORWARD_RIGHT_PORT,LED_FORWARD_RIGHT_PIN);
+			LED_TurnOFF(LED_FORWARD_LEFT_PORT,LED_FORWARD_LEFT_PIN);
 			break;
 			
 			case 'X' :         //FL  ON
-			LED_TurnOFF(LED_FORWARD_RIGHT_PORT,LED2_FORWARD_RIGHT_PIN);
-			LED_TurnON(LED_FORWARD_LEFT_PORT,LED2_FORWARD_LEFT_PIN);
+			LED_TurnOFF(LED_FORWARD_RIGHT_PORT,LED_FORWARD_RIGHT_PIN);
+			LED_TurnON(LED_FORWARD_LEFT_PORT,LED_FORWARD_LEFT_PIN);
 			break;
 			
 			case 'x' :         //FL  OFF
-			LED_TurnOFF(LED_FORWARD_RIGHT_PORT,LED2_FORWARD_RIGHT_PIN);
-			LED_TurnOFF(LED_FORWARD_LEFT_PORT,LED2_FORWARD_LEFT_PIN);
+			LED_TurnOFF(LED_FORWARD_RIGHT_PORT,LED_FORWARD_RIGHT_PIN);
+			LED_TurnOFF(LED_FORWARD_LEFT_PORT,LED_FORWARD_LEFT_PIN);
 			break;
 			
 			
@@ -226,7 +223,7 @@ void BlueToothMode_SuperLoop()
 			break;
 			
 			default:
-			
+			//Do NoThing
 			break;
 		}
 	}
@@ -235,86 +232,81 @@ void BlueToothMode_SuperLoop()
 
 void UltraSonicMode_SuperLoop()
 {
-	f64 UltraSonic_ForwardValue ;
-	f64 UltraSonic_RightValue ;
-	f64 UltraSonic_LeftValue ;
+	f64 UltraSonic_ForwardValue;
+	f64 UltraSonic_RightValue;
+	f64 UltraSonic_LeftValue;
 	while(1)
 	{
-		ULTRASOIC_GetDistance(&UltraSonic_ForwardValue);
-		LCD_ClearDesplay();
-		LCD_GoToLocation(1,1);
-		LCD_SendString("Distance=");
-		LCD_SendIntegarNumber((u16)UltraSonic_ForwardValue);
-		LCD_SendString("CM");
-		if (UltraSonic_ForwardValue==0 || UltraSonic_ForwardValue>30.0)
+		Ultrasonic_ReadDistance(&UltraSonic_ForwardValue);
+		if ( UltraSonic_ForwardValue>30.00)
 		{
 			WHEEL_MoveForward();
-			//LCD_ClearDesplay();
-			LCD_GoToLocation(1,2);
-			LCD_SendString("    Forward    ");
 		}
 		else
 		{
-			BUZZER_Toggle(BUZZER_PORT,BUZZER_PIN);
-			
+			WHEEL_Stop();
 			//	MOVE A Little Backward
-			WHEEL_MoveBackward();
 			LED_TurnON(LED_BACK_PORT,LED_BACK_PIN);
-			LCD_ClearDesplay();
-			LCD_GoToLocation(1,1);
-			LCD_SendString("      Back      ");
+			BUZZER_TurnOn(BUZZER_PORT,BUZZER_PIN);
+			WHEEL_MoveBackward();
 			_delay_ms(500);
+			LED_TurnOFF(LED_BACK_PORT,LED_BACK_PIN);
+			BUZZER_TurnOff(BUZZER_PORT,BUZZER_PIN);
 			WHEEL_Stop();
 			
 			// Measure Distance At Right
 			SERVO_TurnON(RIGHT_Angle);
-			ULTRASOIC_GetDistance(&UltraSonic_RightValue);
-			LCD_ClearDesplay();
-			LCD_GoToLocation(1,1);
-			LCD_SendString("R_Distance=");
-			LCD_SendIntegarNumber((u16)UltraSonic_RightValue);
-			LCD_SendString("CM");
-			_delay_ms(500);
 			
+			Ultrasonic_ReadDistance(&UltraSonic_RightValue);
+			LCD_GoToLocation(1,1);
+			LCD_SendString("R=");
+			LCD_SendRealNumber(UltraSonic_RightValue);
+			LCD_SendString("CM");
+
+			_delay_ms(1000);
 			// Measure Distance At Left
 			SERVO_TurnON(LEFT_Angle);
-			ULTRASOIC_GetDistance(&UltraSonic_LeftValue);
-			LCD_ClearDesplay();
-			LCD_GoToLocation(1,1);
-			LCD_SendString("L_Distance=");
-			LCD_SendIntegarNumber((u16)UltraSonic_LeftValue);
-			LCD_SendString("CM");
-			_delay_ms(500);
-			LED_TurnOFF(LED_BACK_PORT,LED_BACK_PIN);
 			
+			Ultrasonic_ReadDistance(&UltraSonic_LeftValue);
+			LCD_GoToLocation(1,2);
+			LCD_SendString("L=");
+			LCD_SendRealNumber(UltraSonic_LeftValue);
+			LCD_SendString("CM");
+			
+			_delay_ms(1000);
 			if (UltraSonic_RightValue > UltraSonic_LeftValue)
 			{
+				LCD_ClearDesplay();
+				LCD_SendString("    ---> ");
 				//MOVE Right
 				SERVO_TurnON(FORWARD_Angle);
-				LED_TurnON(LED_FORWARD_RIGHT_PORT,LED2_FORWARD_RIGHT_PIN);
+				_delay_ms(100);
 				WHEEL_MoveForwardRight();
-				LCD_ClearDesplay();
-				LCD_GoToLocation(1,1);
-				LCD_SendString("  Turn Right->> ");
-				_delay_ms(1000);
-				LED_TurnOFF(LED_FORWARD_RIGHT_PORT,LED2_FORWARD_RIGHT_PIN);
+
+				LED_TurnON(LED_FORWARD_RIGHT_PORT,LED_FORWARD_RIGHT_PIN);
+				_delay_ms(500);
+				LED_TurnOFF(LED_FORWARD_RIGHT_PORT,LED_FORWARD_RIGHT_PIN);
 				WHEEL_Stop();
+				
 			}
 			else
 			{
-				//MOVE Left 
-				SERVO_TurnON(FORWARD_Angle);
-				LED_TurnON(LED_FORWARD_LEFT_PORT,LED2_FORWARD_LEFT_PIN);
-				WHEEL_MoveForwardleft();
 				LCD_ClearDesplay();
-				LCD_GoToLocation(1,1);
-				LCD_SendString(" <<- Turn Left  ");
-				_delay_ms(1000);
-				LED_TurnOFF(LED_FORWARD_LEFT_PORT,LED2_FORWARD_LEFT_PIN);
+				LCD_SendString("    <---- ");
+				//MOVE Left
+				SERVO_TurnON(FORWARD_Angle);
+				_delay_ms(100);
+				WHEEL_MoveForwardleft();
+				
+				LED_TurnON(LED_FORWARD_LEFT_PORT,LED_FORWARD_LEFT_PIN);
+				
+				_delay_ms(500);
+				LED_TurnOFF(LED_FORWARD_LEFT_PORT,LED_FORWARD_LEFT_PIN);
+				
 				WHEEL_Stop();
+				
 			}
 		}
-		//_delay_ms(500);
 	}
 }
 

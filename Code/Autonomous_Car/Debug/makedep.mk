@@ -12,17 +12,13 @@ HAL\BUZZER\src\BUZZER_program.c
 
 HAL\LCD\src\LCD_program.c
 
-HAL\LDR\src\LDR_program.c
-
 HAL\LED\src\LED_program.c
 
 HAL\SERVO\src\SERVO_program.c
 
-HAL\ULTRASONIC\src\ULTRASONIC_program.c
-
 HAL\MOTOR\src\MOTOR_program.c
 
-MCAL\ADC\src\ADC_program.c
+HAL\ULTRASONIC\src\ULTRASONIC_program.c
 
 MCAL\DIO\src\DIO_program.c
 

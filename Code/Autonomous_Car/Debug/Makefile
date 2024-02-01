@@ -41,8 +41,6 @@ SUBDIRS :=  \
 ../HAL/BUZZER/src/ \
 ../HAL/LCD/include/ \
 ../HAL/LCD/src/ \
-../HAL/LDR/include \
-../HAL/LDR/src \
 ../HAL/LED \
 ../HAL/LCD \
 ../HAL/BUZZER \
@@ -50,7 +48,6 @@ SUBDIRS :=  \
 ../HAL/BUTTON \
 ../HAL/LED/include \
 ../HAL/LED/src \
-../HAL/LDR \
 ../HAL/SERVO/include/ \
 ../HAL/SERVO/src/ \
 ../HAL/ULTRASONIC/include/ \
@@ -61,8 +58,6 @@ SUBDIRS :=  \
 ../HAL/MOTOR/include \
 ../HAL/MOTOR/src \
 ../MCAL \
-../MCAL/ADC/include \
-../MCAL/ADC/src \
 ../MCAL/DIO \
 ../MCAL/DIO/include/ \
 ../MCAL/DIO/src/ \
@@ -72,7 +67,6 @@ SUBDIRS :=  \
 ../MCAL/EXTERNAL_INTERRUPT \
 ../MCAL/GLOBAL_INTERRUPT/include \
 ../MCAL/GLOBAL_INTERRUPT/src \
-../MCAL/ADC \
 ../MCAL/TIMER2 \
 ../MCAL/TIMER0 \
 ../MCAL/TIMER0/include/ \
@@ -95,12 +89,10 @@ C_SRCS +=  \
 ../HAL/BUTTON/src/BUTTON_program.c \
 ../HAL/BUZZER/src/BUZZER_program.c \
 ../HAL/LCD/src/LCD_program.c \
-../HAL/LDR/src/LDR_program.c \
 ../HAL/LED/src/LED_program.c \
 ../HAL/SERVO/src/SERVO_program.c \
-../HAL/ULTRASONIC/src/ULTRASONIC_program.c \
 ../HAL/MOTOR/src/MOTOR_program.c \
-../MCAL/ADC/src/ADC_program.c \
+../HAL/ULTRASONIC/src/ULTRASONIC_program.c \
 ../MCAL/DIO/src/DIO_program.c \
 ../MCAL/EXTERNAL_INTERRUPT/src/EXTI_program.c \
 ../MCAL/GLOBAL_INTERRUPT/src/GLBI_program.c \
@@ -122,12 +114,10 @@ HAL/BLUETOOTH/src/BLUETOOTH_program.o \
 HAL/BUTTON/src/BUTTON_program.o \
 HAL/BUZZER/src/BUZZER_program.o \
 HAL/LCD/src/LCD_program.o \
-HAL/LDR/src/LDR_program.o \
 HAL/LED/src/LED_program.o \
 HAL/SERVO/src/SERVO_program.o \
-HAL/ULTRASONIC/src/ULTRASONIC_program.o \
 HAL/MOTOR/src/MOTOR_program.o \
-MCAL/ADC/src/ADC_program.o \
+HAL/ULTRASONIC/src/ULTRASONIC_program.o \
 MCAL/DIO/src/DIO_program.o \
 MCAL/EXTERNAL_INTERRUPT/src/EXTI_program.o \
 MCAL/GLOBAL_INTERRUPT/src/GLBI_program.o \
@@ -143,12 +133,10 @@ HAL/BLUETOOTH/src/BLUETOOTH_program.o \
 HAL/BUTTON/src/BUTTON_program.o \
 HAL/BUZZER/src/BUZZER_program.o \
 HAL/LCD/src/LCD_program.o \
-HAL/LDR/src/LDR_program.o \
 HAL/LED/src/LED_program.o \
 HAL/SERVO/src/SERVO_program.o \
-HAL/ULTRASONIC/src/ULTRASONIC_program.o \
 HAL/MOTOR/src/MOTOR_program.o \
-MCAL/ADC/src/ADC_program.o \
+HAL/ULTRASONIC/src/ULTRASONIC_program.o \
 MCAL/DIO/src/DIO_program.o \
 MCAL/EXTERNAL_INTERRUPT/src/EXTI_program.o \
 MCAL/GLOBAL_INTERRUPT/src/GLBI_program.o \
@@ -164,12 +152,10 @@ HAL/BLUETOOTH/src/BLUETOOTH_program.d \
 HAL/BUTTON/src/BUTTON_program.d \
 HAL/BUZZER/src/BUZZER_program.d \
 HAL/LCD/src/LCD_program.d \
-HAL/LDR/src/LDR_program.d \
 HAL/LED/src/LED_program.d \
 HAL/SERVO/src/SERVO_program.d \
-HAL/ULTRASONIC/src/ULTRASONIC_program.d \
 HAL/MOTOR/src/MOTOR_program.d \
-MCAL/ADC/src/ADC_program.d \
+HAL/ULTRASONIC/src/ULTRASONIC_program.d \
 MCAL/DIO/src/DIO_program.d \
 MCAL/EXTERNAL_INTERRUPT/src/EXTI_program.d \
 MCAL/GLOBAL_INTERRUPT/src/GLBI_program.d \
@@ -185,12 +171,10 @@ HAL/BLUETOOTH/src/BLUETOOTH_program.d \
 HAL/BUTTON/src/BUTTON_program.d \
 HAL/BUZZER/src/BUZZER_program.d \
 HAL/LCD/src/LCD_program.d \
-HAL/LDR/src/LDR_program.d \
 HAL/LED/src/LED_program.d \
 HAL/SERVO/src/SERVO_program.d \
-HAL/ULTRASONIC/src/ULTRASONIC_program.d \
 HAL/MOTOR/src/MOTOR_program.d \
-MCAL/ADC/src/ADC_program.d \
+HAL/ULTRASONIC/src/ULTRASONIC_program.d \
 MCAL/DIO/src/DIO_program.d \
 MCAL/EXTERNAL_INTERRUPT/src/EXTI_program.d \
 MCAL/GLOBAL_INTERRUPT/src/GLBI_program.d \
@@ -209,10 +193,6 @@ ADDITIONAL_DEPENDENCIES:=
 OUTPUT_FILE_DEP:= ./makedep.mk
 
 # AVR32/GNU C Compiler
-
-
-
-
 
 
 
@@ -276,12 +256,6 @@ HAL/LCD/src/%.o: ../HAL/LCD/src/%.c
 	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32   -o"$@" "$<" 
 	@echo Finished building: $<
 
-HAL/LDR/src/%.o: ../HAL/LDR/src/%.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32   -o"$@" "$<" 
-	@echo Finished building: $<
-
 HAL/LED/src/%.o: ../HAL/LED/src/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
@@ -294,19 +268,13 @@ HAL/SERVO/src/%.o: ../HAL/SERVO/src/%.c
 	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32   -o"$@" "$<" 
 	@echo Finished building: $<
 
-HAL/ULTRASONIC/src/%.o: ../HAL/ULTRASONIC/src/%.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
-	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32   -o"$@" "$<" 
-	@echo Finished building: $<
-
 HAL/MOTOR/src/%.o: ../HAL/MOTOR/src/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
 	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32   -o"$@" "$<" 
 	@echo Finished building: $<
 
-MCAL/ADC/src/%.o: ../MCAL/ADC/src/%.c
+HAL/ULTRASONIC/src/%.o: ../HAL/ULTRASONIC/src/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : (AVR_8_bit_GNU_Toolchain_3.4.1_830) 4.6.2
 	$(QUOTE)C:\Program Files (x86)\Atmel\Atmel Studio 6.0\extensions\Atmel\AVRGCC\3.4.1.95\AVRToolchain\bin\avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O1 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"  -mmcu=atmega32   -o"$@" "$<" 

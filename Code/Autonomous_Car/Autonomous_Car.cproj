@@ -118,18 +118,6 @@
     <Compile Include="HAL\LCD\src\LCD_program.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\LDR\include\LDR_config.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="HAL\LDR\include\LDR_interface.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="HAL\LDR\include\LDR_private.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="HAL\LDR\src\LDR_program.c">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="HAL\LED\include\LED_config.h">
       <SubType>compile</SubType>
     </Compile>
@@ -166,9 +154,6 @@
     <Compile Include="HAL\ULTRASONIC\include\ULTRASONIC_private.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\ULTRASONIC\src\ULTRASONIC_program.c">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="HAL\MOTOR\include\MOTOR_config.h">
       <SubType>compile</SubType>
     </Compile>
@@ -178,16 +163,7 @@
     <Compile Include="HAL\MOTOR\src\MOTOR_program.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\ADC\include\ADC_config.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="MCAL\ADC\include\ADC_interface.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="MCAL\ADC\include\ADC_private.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="MCAL\ADC\src\ADC_program.c">
+    <Compile Include="HAL\ULTRASONIC\src\ULTRASONIC_program.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\DIO\include\DIO_config.h">
@@ -292,8 +268,6 @@
     <Folder Include="HAL\BUZZER\src\" />
     <Folder Include="HAL\LCD\include\" />
     <Folder Include="HAL\LCD\src\" />
-    <Folder Include="HAL\LDR\include" />
-    <Folder Include="HAL\LDR\src" />
     <Folder Include="HAL\LED" />
     <Folder Include="HAL\LCD" />
     <Folder Include="HAL\BUZZER" />
@@ -301,7 +275,6 @@
     <Folder Include="HAL\BUTTON" />
     <Folder Include="HAL\LED\include" />
     <Folder Include="HAL\LED\src" />
-    <Folder Include="HAL\LDR" />
     <Folder Include="HAL\SERVO\include\" />
     <Folder Include="HAL\SERVO\src\" />
     <Folder Include="HAL\ULTRASONIC\include\" />
@@ -312,8 +285,6 @@
     <Folder Include="HAL\MOTOR\include" />
     <Folder Include="HAL\MOTOR\src" />
     <Folder Include="MCAL" />
-    <Folder Include="MCAL\ADC\include" />
-    <Folder Include="MCAL\ADC\src" />
     <Folder Include="MCAL\DIO" />
     <Folder Include="MCAL\DIO\include\" />
     <Folder Include="MCAL\DIO\src\" />
@@ -323,7 +294,6 @@
     <Folder Include="MCAL\EXTERNAL_INTERRUPT" />
     <Folder Include="MCAL\GLOBAL_INTERRUPT\include" />
     <Folder Include="MCAL\GLOBAL_INTERRUPT\src" />
-    <Folder Include="MCAL\ADC" />
     <Folder Include="MCAL\TIMER2" />
     <Folder Include="MCAL\TIMER0" />
     <Folder Include="MCAL\TIMER0\include\" />

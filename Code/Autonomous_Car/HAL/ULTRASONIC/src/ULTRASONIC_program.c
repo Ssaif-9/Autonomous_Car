@@ -2,36 +2,35 @@
  * ULTRASONIC_program.c
  *
  * Created: 05-Nov-23 2:52:15 PM
- *  Author: M5_Autonomous_Car_TEAM
+ *  Author: SEIF EL-DIN SOLTAN
  */ 
 
 #define F_CPU 16000000UL
 #include <util/delay.h>
 
-#include "../../../UTILITES/STD_TYPE.h"
 #include "../../../UTILITES/BIT_MATH.h"
+#include "../../../UTILITES/STD_TYPE.h"
+
 
 #include "../../../MCAL/DIO/include/DIO_config.h"
 #include "../../../MCAL/DIO/include/DIO_interface.h"
 #include "../../../MCAL/DIO/include/DIO_private.h"
 
+#include "../../../MCAL/TIMER0/include/TIMER0_config.h"
+#include "../../../MCAL/TIMER0/include/TIMER0_interface.h"
+#include "../../../MCAL/TIMER0/include/TIMER0_private.h"
+
+#include "../../../MCAL/GLOBAL_INTERRUPT/include/GLBI_config.h"
+#include "../../../MCAL/GLOBAL_INTERRUPT/include/GLBI_interfase.h"
+#include "../../../MCAL/GLOBAL_INTERRUPT/include/GLBI_private.h"
 
 #include "../../../MCAL/EXTERNAL_INTERRUPT/include/EXTI_config.h"
 #include "../../../MCAL/EXTERNAL_INTERRUPT/include/EXTI_interface.h"
 #include "../../../MCAL/EXTERNAL_INTERRUPT/include/EXTI_private.h"
 
-#include "../../../MCAL/TIMER0/include/TIMER0_config.h"
-#include "../../../MCAL/TIMER0/include/TIMER0_interface.h"
-#include "../../../MCAL/TIMER0/include/TIMER0_private.h"
-
-#include "../../../MCAL/GLOBAL_INTERRUPT/include/GLBI_interfase.h"
-#include "../../../MCAL/GLOBAL_INTERRUPT/include/GLBI_private.h"
-
-
 #include "../include/ULTRASONIC_config.h"
 #include "../include/ULTRASONIC_interface.h"
 #include "../include/ULTRASONIC_private.h"
-
 
 
 u8 sensor_working=0;
@@ -41,7 +40,7 @@ f64 distance;
 
 
 
-void ULTRASOIC_init(void)
+void Ultrasonic_init(void)
 {
 	DIO_SetPinDirection(ULTRASONIC_TRIGGER_PORT,ULTRASONIC_TRIGGER_PIN,DIO_PIN_OUTPUT);
 	DIO_SetPinDirection(ULTRASONIC_ECHO_PORT,ULTRASONIC_ECHO_PIN,DIO_PIN_INPUT);
@@ -51,7 +50,7 @@ void ULTRASOIC_init(void)
 	TMR0_Start();
 }
 
-void ULTRASOIC_GetDistance(f64* DistanceValue)
+void Ultrasonic_ReadDistance(f64* DistanceValue)
 {
 	if (!sensor_working)
 	{
@@ -59,6 +58,7 @@ void ULTRASOIC_GetDistance(f64* DistanceValue)
 		_delay_us(15);
 		DIO_SetPinValue(ULTRASONIC_TRIGGER_PORT,ULTRASONIC_TRIGGER_PIN,DIO_PIN_LOW);
 		sensor_working=1;
+
 	}		
 	*DistanceValue=distance;	
 }
