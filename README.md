@@ -2,7 +2,7 @@
 
 # Project Objective: 
 
-         > A simple car connected to a Mobile(wireless -> Bluetooth), having 2 modes of operation, that the user can select through the GUI. The first mode is manual mode, where the user can control car movements through the GUI using buttons. The second mode is autonomous mode, when selected through GUI by user, in which the car keeps moving while avoiding collisions using its on-board sensors (ultrasonic). In all modes, 
+> A simple car connected to a Mobile(wireless -> Bluetooth), having 2 modes of operation, that the user can select through the GUI. The first mode is manual mode, where the user can control car movements through the GUI using buttons. The second mode is autonomous mode, when selected through GUI by user, in which the car keeps moving while avoiding collisions using its on-board sensors (ultrasonic). In all modes, 
 
 # First Mode 
         **Ultrasonic Autonomous Navigation**
